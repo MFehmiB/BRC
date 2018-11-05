@@ -1,4 +1,4 @@
-TA 1.1a)
+﻿TA 1.1a)
 
 Zeile 1:  Auf #include folgt "stdio.h" statt dem korrekten <stdio.h>
 Zeile 2:  Semikolon nach #define statement
