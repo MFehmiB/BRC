@@ -1,0 +1,21 @@
+TA 1.1a)
+
+Zeile 1:  Auf #include folgt "stdio.h" statt dem korrekten <stdio.h>
+Zeile 2:  Semikolon nach #define statement
+          #define im Hauptprogramm, muss aber in eine Header-Datei
+Zeile 3:  Semikolon nach #define statement
+          #define im Hauptprogramm, muss aber in eine Header-Datei
+Zeile 6:  Fehlende seperate Deklaration von int-variable year
+Zeile 7:  Semikolon nach if-statement
+Zeile 7:  "=" anstatt "==" im if-statement
+Zeile 10: Fehlendes Semikolon am Ende der Zeile
+          Fehlende schließende Klammer "}" für for-Schleife
+Zeile 11: fehlendes return 0 statement
+
+TA 1.1b)
+
+Zeile 8:  Fehlende seperate Deklaration von char*-Variable buff
+          Bei malloc wird die Länge des ersten String als Parameter übergeben. Der erste String ist aber der Programmname. Stattdessen müsste der zweite String an index 1 benutzt werden.
+          Folgefehler in Zeilen 10 und 11, wo wieder argv[0] benutzt wird.
+Zeile 10: sizeof wird anstatt strlen benutzt. Die Rückgabe von sizeof ist um eins größer als die von strlen
+Zeile 11: Durch *buff++ wird die Variable, auf die
