@@ -12,7 +12,7 @@ int main(int argc, char const *argv[]) {
   char original;
   int newResult;
   if (argc < 3) {
-    /* code */ 
+    /* code */
     printUsage();
     return 0;
   }
@@ -45,4 +45,12 @@ void printUsage(/* arguments */) {
   "3 chars student number; 2 or more chars; \n"
   "exam number, points and student number are ASCII-encoded, which means they will \n"
   "be shown as chars according to their corresponding ASCII symbol(s). \n");
+}
+
+void print_bin(unsigned char paket) {
+    /* Byte (in Form von char buffer) als binärzahl auf der Konsole ausgeben */
+    for (int i = 0; i < 8; i++) {
+        printf("%d", (paket << i & 0x80) != 0);
+    }
+    printf("\n");
 }
