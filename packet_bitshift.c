@@ -1,23 +1,35 @@
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
 
-char *buffer, *dest;
 int main(int argc, char const *argv[]) {
   /* code */
+  char *buffer, *dest;
 
-  buffer = malloc(strlen(argv[1])+3);
+  //buffer = malloc(strlen(argv[1])+3);
   //dest = buffer;
   char *packet;
+  char original;
   int newResult;
+  if (argc < 3) {
+    /* code */ 
+    printUsage();
+    return 0;
+  }
   if (strlen(argv[1]) < 18) {
     /* code */
     printUsage();
     return 0;
   }
+
   packet = argv[1];
-  newResult =  *argv[2] -48;
+  newResult = *argv[2] -48;
+  //original = packet[12];
+  //printf("%s\n", original);
   printf("%s\n", packet);
   printf("%i\n", newResult);
+
+  //free(buffer);
   return 0;
 }
 
