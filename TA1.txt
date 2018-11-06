@@ -1,15 +1,14 @@
-﻿TA 1.1a)
+TA 1.1a)
 
-Zeile 1:  Auf #include folgt "stdio.h" statt <stdio.h>. "" würde auch gehen, aber führt zu minimalen Verzögerungen da im current dir usw. erst gesucht, und dann im dir von <> gesucht wird.
-Zeile 2 & 3:  Semikolon bei #define - der Präprozessor ersetzt hier die Zahlen nicht mit "2015", sondern "2015;"
-Zeile 6:  int year kann nicht in for-Schleife deklariert werden. Muss vorher deklariert werden. Rechtschreibfehler bei MAX_YAER.
+Zeile 1:  Auf #include folgt "stdio.h" statt dem korrekten <stdio.h>
+Zeile 2:  Semikolon nach #define statement
+Zeile 3:  Semikolon nach #define statement
+Zeile 6:  Fehlende seperate Deklaration von int-variable year
 Zeile 7:  Semikolon nach if-statement
 Zeile 7:  "=" anstatt "==" im if-statement
-Zeile 8: Funktionen müssen vor der Main()-Methode stehen, da sie sonst nicht gefunden werden.
 Zeile 10: Fehlendes Semikolon am Ende der Zeile
           Fehlende schließende Klammer "}" für for-Schleife
 Zeile 11: fehlendes return 0 statement
-Zeile 13: Int sollte klein "int" sein.
 
 TA 1.1b)
 
@@ -18,3 +17,15 @@ Zeile 8:  Fehlende seperate Deklaration von char*-Variable buff
           Folgefehler in Zeilen 10 und 11, wo wieder argv[0] benutzt wird.
 Zeile 10: sizeof wird anstatt strlen benutzt. Die Rückgabe von sizeof ist um eins größer als die von strlen
 Zeile 11: Durch *buff++ wird die Variable, auf die
+
+
+TA 1.3
+
+a) Löscht theoretisch alle Dateien auf dem Dateisystem. rm = löschen, -f = force: ignoriere fehlende Dateien und frage nicht vor dem Löschen einer Datei nach, -r = recursive: auch Unterordner und deren Dateien löschen.
+Jedoch wird root von rm besonders behandelt, daher wird es ohne die zusätzliche Option --no-preserve-root gar nichts machen.
+
+b) Top zeigt alle laufenden Prozesse. -n 10 definiert, dass Top nur 10 frames zeigt und dann terminiert. -u root definiert, dass nur Prozesse des root Users angezeigt werden.
+
+c) Wird man eine Zahl als Argument gegeben, schaut es nur in der entsprechenden section nach dem übergebenen Programm. man hat 8 sections, in denen die Anleitungen aller Programme thematisch eingeordnet werden.
+man 1 errno schaut in der ersten section nach der Anleitung für errno, was es jedoch nicht findet.
+man 3 errno schaut in der dritten section nach der Anleitung für errno, wo diese auch tatsächlich liegt.

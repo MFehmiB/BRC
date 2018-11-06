@@ -47,7 +47,7 @@ int main(int argc, char *argv[]) {
     		newResult = newResult<<2;
     		//add flags
     		newResult = newResult+3;
-    		printf("modifiziert:");
+    		printf("modified:");
     		print_bin(newResult);
     		packet[12] = newResult;
     		printf("new packet name: %s", packet);
