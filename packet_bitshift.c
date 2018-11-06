@@ -22,11 +22,9 @@ void print_bin(unsigned char paket) {
 }
 
 int main(int argc, char *argv[]) {
-	char* packet;
-	int newResult;
-	char byteToChange;
-	char newASCIIResult;
-
+	unsigned char* packet;
+	unsigned int newResult;
+	unsigned char byteToChange;
 	//Check if the packetsize is smaller than 18 byte (a char in C is always 1byte)
 	if (argc == 3) {
 		if (strlen(argv[1]) >= 18) {
@@ -38,32 +36,33 @@ int main(int argc, char *argv[]) {
 			return 0;
 		}
 
-		//check if newResult is between 0-50
+		//We parse the string as an int and save it in newResult and check if it's in the range 0-50
 		if (sscanf(argv[2], "%i", &newResult) == 1) {
 			if (newResult <= 50 && newResult >= 0) {
+        printf("original:");
+    		print_bin(byteToChange);
+    		//bitshift to get points and also gets rid of flags
+    		byteToChange = byteToChange>>2;
+    		printf("points: %d\n", byteToChange);
+    		newResult = newResult<<2;
+    		//add flags
+    		newResult = newResult+3;
+    		printf("modifiziert:");
+    		print_bin(newResult);
+    		packet[12] = newResult;
+    		printf("new packet name: %s", packet);
+      	return 0;
 			} else {
 				printf("Your Result must be between 0 - 50! See usage:\n");
 				printUsage();
 				return 0;
 			}
 		} else {
-			return -1;
+			return 0;
 		}
-		printf("original:");
-		print_bin(byteToChange);
-		//bitshift to get points and also gets rid of flags
-		byteToChange = byteToChange>>2;
-		printf("points: %d\n", byteToChange);
-		newResult = newResult<<2;
-		//add flags
-		newResult = newResult+3;
-		printf("modifiziert:");
-		print_bin(newResult);
-		packet[12] = newResult;
-		printf("new packet name: %s", packet);
-  	return 0;
+
 	} else {
-		printf("Argument is missing! See usage:\n")
+		printf("Argument is missing! See usage:\n");
 		printUsage();
 		return 0;
 	}
