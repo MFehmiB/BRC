@@ -29,3 +29,19 @@ b) Top zeigt alle laufenden Prozesse. -n 10 definiert, dass Top nur 10 frames ze
 c) Wird man eine Zahl als Argument gegeben, schaut es nur in der entsprechenden section nach dem übergebenen Programm. man hat 8 sections, in denen die Anleitungen aller Programme thematisch eingeordnet werden.
 man 1 errno schaut in der ersten section nach der Anleitung für errno, was es jedoch nicht findet.
 man 3 errno schaut in der dritten section nach der Anleitung für errno, wo diese auch tatsächlich liegt.
+
+d) chmod ändert die Nutzungsrechte einer Datei. Die neuen Rechte werden als Oktalzahl eingegeben,
+wobei die erste Ziffer die Rechte des Besitzers, die zweite die Rechte der Filegroup, die dritte die Rechte aller anderen Benutzer darstellt.
+Die einzelnen Ziffern setzen sich wie folgt zusammen: 4 steht für Lese-, 2 für Schreib- und 1 für Ausführungsrechte. Diese werden addiert.
+HelloWorld ist der Name der Datei, deren Rechte verändert werden sollen. sudo gibt dem command Administratorrechte, sodass auch die Rechte von Dateien,
+die root gehören, verändert werden können.
+Hier wird dem Besitzer von HelloWorld alle drei Rechte (7), der Filegroup Schreib- und Ausführungsrechte (3), und allen anderen Benutzern Leserechte verliehen.
+
+e) wget ist ein Befehl, mit dem direkt aus der Shell Downloads von FTP- oder HTTP-Servern getätigt werden können.
+Danach folgt die URL zu der gewünschten Datei. Diese wird jetzt heruntergeladen.
+Semikola trennen verschiedene Shell-Befehle voneinander, das heißt hier beginnt ein neuer Befehl.
+tar ist ein Programm zum (de-)archivieren von Dateien. Hier wird die heruntergeladene Datei dearchiviert, was durch den Parameter x angegeben wird.
+Der Parameter J sagt dem Programm, dass es zusätzlich ein anderes Programm "xz" zum dekomprimieren nutzen soll. f zeigt an, dass nun der Dateiname folgt.
+grep durchsucht Dateien nach bestimmten Textstellen. Hier wird die vorher entpackte Datei nach dem String 'fuck\|shit' durchsucht, wobei "\" das Zeichen danach escaped (grep arbeitet mit REGEX).
+Der Parameter -o gibt an, dass nur der passende String ausgegeben werden soll. -R gibt an, dass alle Unterverzeichnisse rekursiv durchsucht werden. --include=*.[hcS] gibt an, dass nur Dateien,
+deren Name die Form des REGEX *.[hcS] hat, durchsucht werden. Der REGEX setzt sich wie folgt zusammen: * (= beliebige Zeichen), . , [hcS] (= eines der Zeichen in den brackets).
