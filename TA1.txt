@@ -1,14 +1,15 @@
 TA 1.1a)
 
-Zeile 1:  Auf #include folgt "stdio.h" statt dem korrekten <stdio.h>
-Zeile 2:  Semikolon nach #define statement
-Zeile 3:  Semikolon nach #define statement
-Zeile 6:  Fehlende seperate Deklaration von int-variable year
+Zeile 1:  Auf #include folgt "stdio.h" statt <stdio.h>. "" würde auch gehen, aber führt zu minimalen Verzögerungen da im current dir usw. erst gesucht, und dann im dir von <> gesucht wird.
+Zeile 2 & 3:  Semikolon bei #define - der Präprozessor ersetzt hier die Zahlen nicht mit "2015", sondern "2015;"
+Zeile 6:  int year kann nicht in for-Schleife deklariert werden. Muss vorher deklariert werden. Rechtschreibfehler bei MAX_YAER.
 Zeile 7:  Semikolon nach if-statement
 Zeile 7:  "=" anstatt "==" im if-statement
+Zeile 8: Funktionen müssen vor der Main()-Methode stehen, da sie sonst nicht gefunden werden. 
 Zeile 10: Fehlendes Semikolon am Ende der Zeile
           Fehlende schließende Klammer "}" für for-Schleife
 Zeile 11: fehlendes return 0 statement
+ Zeile 13: Int sollte klein "int" sein. 
 
 TA 1.1b)
 
