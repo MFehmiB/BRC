@@ -28,18 +28,10 @@ Zeile 5: buf ist ein 64 Byte Array, welches automatisch im Stack zugewiesen wird
 b)
 Zur Laufzeit werden die Variablen abgeräumt und vllt anders verwendet. Deswegen ist es nicht erlaubt Zeiger auf lokale Variablen zurückzugeben, da wir später nicht wissen, worauf dieser Zeiger später zeigt. Hinzukommt, dass durch *size ein dynamisches Array verlangt wird, da *size nicht bekannt ist. Die Größe muss aber zur Kompilierzeit bestimmt sein. Für dynamische Speicherzuweisungen brauchen wir aber malloc().
 
-Operator precedence wird missachtet
-
-
 c) return &val gibt die Adresse der variablen "val" zurück. Rückgabe soll aber ein Pointer sein. Die Adresse wird aber keinem Pointer zugewiesen. Korrekt wäre daher "return p = &val". Siehe aber auch b)
 
 d) Bis zum free(x) war der Speicher reserviert. Nach dem free(x) wissen wir aber nicht, was mit dem Speicher geschehen ist, denn eine andere Stelle des Programm kann sich den Speicherplatz reservieren, dort was reinschreiben usw. usf.
 Wenn wir bei Zeile 14 dann den Inhalt übertragen wollen, kann das zu Fehlern führen. Gute Programmierweise ist, den Zeiger eig. nach free() auf NULL zu setzen, damit bei Zeile 14 ein Fehler geschieht und Bug vermieden wird.
-
-Speicher für y wird nicht wieder freigegeben. 
-Man weiß nicht, ob n != m und außerdem ist x dann wieder freigegeben.
-
-e) malloc ohne free
 
 TA 1.3
 
