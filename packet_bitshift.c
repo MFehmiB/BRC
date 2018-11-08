@@ -2,6 +2,7 @@
 #include <string.h>
 #include <stdlib.h>
 
+
 int main(int argc, char const *argv[]) {
   /* code */
   char *buffer, *dest;
@@ -11,6 +12,11 @@ int main(int argc, char const *argv[]) {
   char *packet;
   char original;
   int newResult;
+  packet = argv[1];
+  newResult = ((int) *argv[2]) -48;
+  original = packet[12];
+
+  // Abfangen falscher Eingaben
   if (argc < 3) {
     /* code */
     printUsage();
@@ -21,10 +27,12 @@ int main(int argc, char const *argv[]) {
     printUsage();
     return 0;
   }
+  if (newResult > 50 || newResult < 0) {
+    /* code */
+    printf("Results range from 0 to 50 points. Enter a number between 0 and 50\n");
+    printUsage();
+  }
 
-  packet = argv[1];
-  newResult = *argv[2] -48;
-  //original = packet[12];
   //printf("%s\n", original);
   printf("%s\n", packet);
   printf("%i\n", newResult);
